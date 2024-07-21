@@ -32,13 +32,16 @@ const Login = () => {
     setLoading(true);
     setError(null);
     try {
-      const response = await fetch("http://localhost:8080/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ userName, password }),
-      });
+      const response = await fetch(
+        "https://uy-ishi-2dars-8oy.onrender.com/login",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ userName, password }),
+        }
+      );
 
       if (response.status === 401) {
         throw new Error("Invalid username or password");
