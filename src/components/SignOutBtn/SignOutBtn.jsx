@@ -1,0 +1,29 @@
+import { FiLogOut } from "react-icons/fi";
+import React from "react";
+import { UserContext } from "../../context/UserContext";
+import { useNavigate } from "react-router-dom";
+
+const SignOutBtn = () => {
+  const { setUser } = React.useContext(UserContext);
+  const navigate = useNavigate();
+
+  const handleSignOut = () => {
+    localStorage.removeItem("user");
+    setUser(null);
+    if (window.location.pathname !== "/") {
+      navigate("/login", { replace: true });
+    }
+  };
+
+  return (
+    <button
+      className="flex items-center gap-[10px]"
+      onClick={() => handleSignOut()}
+    >
+      <FiLogOut size={20} />{" "}
+      <span className="font-notoSans text-[20px] leading-[27px]">Sign Out</span>
+    </button>
+  );
+};
+
+export default SignOutBtn;
