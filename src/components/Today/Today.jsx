@@ -94,7 +94,7 @@ const Today = ({ setSearch, count, searching }) => {
                   }}
                   type="checkbox"
                   className="checkbox"
-                  defaultChecked={todo.completed}
+                  checked={todo.completed}
                 />
                 <p className="font-notoSans text-[18px] leading-[20px]">
                   {todo.text}
